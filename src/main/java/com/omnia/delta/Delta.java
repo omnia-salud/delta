@@ -3,13 +3,11 @@ package com.omnia.delta;
 public class Delta
 {
   private final int insertionCost;
-  private final int deletionCost;
   private final int editionCost;
 
-  Delta(int insertionCost, int deletionCost, int editionCost)
+  Delta(int insertionCost, int editionCost)
   {
     this.insertionCost = insertionCost;
-    this.deletionCost = deletionCost;
     this.editionCost = editionCost;
   }
 
@@ -45,7 +43,7 @@ public class Delta
         else
         {
           int addCost = d[i][j-1] + insertionCost;
-          int delCost = d[i-1][j] + deletionCost;
+          int delCost = d[i-1][j] + insertionCost;
           int editCost = d[i-1][j-1] + editionCost;
           d[i][j] = minimumOf(addCost, delCost, editCost);
         }
