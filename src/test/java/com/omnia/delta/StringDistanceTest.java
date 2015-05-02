@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.*;
 
-public class DistanceTest
+public class StringDistanceTest
 {
   private Delta delta;
 
