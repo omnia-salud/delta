@@ -2,9 +2,15 @@ package com.omnia.delta;
 
 public class Delta
 {
-  public static Delta build()
+  private final int insertionCost;
+  private final int deletionCost;
+  private final int editionCost;
+
+  Delta(int insertionCost, int deletionCost, int editionCost)
   {
-    return new Delta();
+    this.insertionCost = insertionCost;
+    this.deletionCost = deletionCost;
+    this.editionCost = editionCost;
   }
 
   public int distance(String a, String b)
@@ -33,9 +39,9 @@ public class Delta
         }
         else
         {
-          int addCost = d[i][j-1] + 1;
-          int delCost = d[i-1][j] + 1;
-          int editCost = d[i-1][j-1] + 1;
+          int addCost = d[i][j-1] + insertionCost;
+          int delCost = d[i-1][j] + deletionCost;
+          int editCost = d[i-1][j-1] + editionCost;
           d[i][j] = minimumOf(addCost, delCost, editCost);
         }
       }

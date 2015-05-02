@@ -9,8 +9,9 @@ public class DistanceTest
   private Delta delta;
 
   @Before
-  public void setup() {
-    delta = Delta.build();
+  public void setup()
+  {
+    delta = new DeltaBuilder().build();
   }
 
   @Test
