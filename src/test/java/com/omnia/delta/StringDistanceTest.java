@@ -67,4 +67,18 @@ public class StringDistanceTest
     int distance = delta.distance(a, b);
     assertThat(distance, is(3));
   }
+
+  @Test
+  public void shouldRespectCaseSensitiveConfiguration()
+  {
+    String a = "InFlames";
+    String b = "inflames";
+
+    int distance = delta.distance(a, b);
+    assertThat("case sensitive by default", distance, is(2));
+
+    Delta caseInsensitiveDelta = new DeltaBuilder().caseInsensitive().build();
+    int distance2 = caseInsensitiveDelta.distance(a, b);
+    assertThat("can be configured to be case insensitive", distance2, is(0));
+  }
 }

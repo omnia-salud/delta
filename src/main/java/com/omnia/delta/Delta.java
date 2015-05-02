@@ -4,11 +4,13 @@ public class Delta
 {
   private final int insertionCost;
   private final int editionCost;
+  private final boolean caseSensitive;
 
-  Delta(int insertionCost, int editionCost)
+  Delta(int insertionCost, int editionCost, boolean caseSensitive)
   {
     this.insertionCost = insertionCost;
     this.editionCost = editionCost;
+    this.caseSensitive = caseSensitive;
   }
 
   public int distance(Diffable a, Diffable b)
@@ -18,6 +20,11 @@ public class Delta
 
   public int distance(String a, String b)
   {
+    if (!this.caseSensitive)
+    {
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+    }
     int cols = a.length() + 1;
     int rows = b.length() + 1;
     int d[][] = new int[cols][rows];
