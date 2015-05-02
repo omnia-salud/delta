@@ -13,6 +13,11 @@ public class Delta
     this.editionCost = editionCost;
   }
 
+  public int distance(Diffable a, Diffable b)
+  {
+    return distance(a.diffString(), b.diffString());
+  }
+
   public int distance(String a, String b)
   {
     int cols = a.length() + 1;
