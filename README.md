@@ -14,6 +14,34 @@ Just create a `Delta` object using the builder interface and then pass in two st
     assert(distance == 3);
 ```
 
+## How to get it
+
+You can pull it from maven once you add our repository:
+
+```xml
+<repositories>
+  <repository>
+    <id>omnia-delta-repo</id>
+    <url>https://raw.github.com/omnia-salud/delta/repository/</url>
+    <snapshots>
+      <enabled>true</enabled>
+      <updatePolicy>always</updatePolicy>
+    </snapshots>
+  </repository>
+</repositories>
+```
+
+Then just add the dependency:
+
+
+```xml
+<dependency>
+  <groupId>org.omnia</groupId>
+  <artifactId>delta</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
 ## How does it work?
 Delta uses a fast java implementation of the [Levenshtein distance algorithm](http://en.wikipedia.org/wiki/Levenshtein_distance). It's versatile since you can configure the costs of insertions and editions at your will (for example, considering editions twice as expensive than insertions).
 
