@@ -3,6 +3,7 @@
 A simple, fast library to detect similarities between strings (and even arbitrary objects).
 
 [![Build Status](https://secure.travis-ci.org/omnia-salud/delta.svg?branch=master)](http://travis-ci.org/omnia-salud/delta)
+[![License](https://img.shields.io/apm/l/vim-mode.svg)](http://github.com/omnia-salud/delta/blob/master/LICENSE.txt)
 
 ## How to use it?
 
